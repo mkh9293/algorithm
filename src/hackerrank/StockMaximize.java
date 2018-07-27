@@ -55,7 +55,7 @@ public class StockMaximize {
 
 
     public static void main(String[] args) throws IOException {
-//    	BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("C:\\Users\\lg\\Desktop\\input"));
+    	BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("C:\\Users\\lg\\Desktop\\input"));
     	
     	Scanner scanner = new Scanner(System.in);
         int t = scanner.nextInt();
@@ -75,12 +75,11 @@ public class StockMaximize {
             }
 
             long result = stockmax(prices);
-            System.out.println(result);
-//            bufferedWriter.write(String.valueOf(result));
-//            bufferedWriter.newLine();
+            bufferedWriter.write(String.valueOf(result));
+            bufferedWriter.newLine();
         }
 
-//        bufferedWriter.close();
+        bufferedWriter.close();
 
         scanner.close();
     }
