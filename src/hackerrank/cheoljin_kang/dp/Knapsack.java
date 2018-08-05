@@ -1,6 +1,7 @@
-package hackerrank.cheoljin_kang.dp.knapsack;
+package hackerrank.cheoljin_kang.dp;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 Problem
@@ -40,55 +41,10 @@ public class Knapsack {
         int k4 = 8;
         int[] arr5 = {4, 7};
         int k5 = 22;
-
-//        String[] test3 = s4.split(" ");
-//        int[] test4 = new int[test3.length];
-//        for (int i = 0; i < test4.length; i++) {
-//            test4[i] = Integer.parseInt(test3[i]);
-//        }
-
         int[] arr6 = {3, 6, 7, 11, 12};
         int k6 = 13;
-
-
-//        System.out.println(unboundedKnapsack(k1, arr1));
-//        System.out.println();
-//        System.out.println(unboundedKnapsack(k2, arr2));
-//        System.out.println();
-//        System.out.println(unboundedKnapsack(k3, arr3));
-//        System.out.println();
-//        System.out.println(unboundedKnapsack(k5, test2));
-//        System.out.println();
-//        System.out.println(unboundedKnapsack(k6, arr6));
-//        System.out.println(knapsack(arr5, k5));
-        System.out.println(knapsack(arr5, 13));
-    }
-
-    static int unboundedKnapsack(int k, int[] arr) {
-        List list = new ArrayList();
-        Map<String, Integer> myMap = new HashMap<>();
-        int currentNum = k;
-        Arrays.sort(arr);
-
-        // minimum number in arr is greater than k
-        if (arr[0] > k) {
-            return 0;
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            if (!list.contains(arr[i]) && arr[i] <= k) {
-                list.add(arr[i]);
-            }
-        }
-        int size = list.size();
-
-        // arr in number is all same
-        if (size <= 1) {
-            return k - (k % (int) list.get(0));
-        }
-
-
-        return 0;
+        
+        System.out.println(knapsack(arr1, k1));
     }
 
     static int knapsack(int[] nums, int k) {
@@ -98,7 +54,6 @@ public class Knapsack {
     static int knapsack(int[] nums, int k, int prev, Map<String, Integer> memo) {
         String key = k + "|" + prev;
         if (memo.containsKey(key)) {
-            System.out.println("!!!!!!!!!");
             return memo.get(key);
         }
         int max = 0;
