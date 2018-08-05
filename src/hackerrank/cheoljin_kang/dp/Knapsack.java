@@ -43,7 +43,7 @@ public class Knapsack {
         int k5 = 22;
         int[] arr6 = {3, 6, 7, 11, 12};
         int k6 = 13;
-        
+
         System.out.println(knapsack(arr1, k1));
     }
 
@@ -67,7 +67,6 @@ public class Knapsack {
                 max = Math.max(max, knapsack(nums, nextK, nums[i], memo) + prev);
             }
         }
-        System.out.println("key : " + key + "     max : " + max);
         memo.put(key, max);
         return max;
     }
