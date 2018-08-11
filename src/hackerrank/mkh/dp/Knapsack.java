@@ -1,4 +1,4 @@
-package hackerrank.mkh;
+package hackerrank.mkh.dp;
 
 import java.io.*;
 import java.math.*;
