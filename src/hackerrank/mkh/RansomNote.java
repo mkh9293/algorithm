@@ -43,12 +43,12 @@ public class RansomNote {
 		int count = 1;
 		
 		for(int i=0; i<magazine.length; i++) {
-//			if(t.containsKey(magazine[i])) {
-//				count = t.get(magazine[i])+1;
-//			} else {
-//				count = 1;
-//			}
-			t.merge(magazine[i], 1, Integer::sum);
+			if(t.containsKey(magazine[i])) {
+				count = t.get(magazine[i])+1;
+			} else {
+				count = 1;
+			}
+			t.put(magazine[i], count);
 		}
 		
 		for(int i=0; i<note.length; i++) {
