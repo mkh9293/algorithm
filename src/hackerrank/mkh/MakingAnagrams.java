@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MakingAnagrams {
-	 private static final int NUM_LETTERS = 26; // we assume lower-case letters only
 	public static void main(String[] args) throws IOException {
 		
 		Scanner scanner = new Scanner(System.in);
