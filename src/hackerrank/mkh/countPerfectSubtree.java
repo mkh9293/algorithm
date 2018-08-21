@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class countPerfectSubtree {
+public class CountPerfectSubtree {
 	public static void main(String[] args) {
 		Tree tree = new Tree(1);
 		
+		// test case 1
 		// left
 		Tree tree2 = new Tree(2);
 		tree2.rightInsert(new Tree(4));
@@ -29,8 +30,27 @@ public class countPerfectSubtree {
 		
 		tree.rightInsert(tree3);
 		
+		
+//		// test case 2
+//		tree.rightInsert(new Tree(3));
+//		
+//		Tree t4 = new Tree(4);
+//		t4.leftInsert(new Tree(6));
+//		t4.rightInsert(new Tree(7));
+//		
+//		Tree t5 = new Tree(5);
+//		t5.leftInsert(new Tree(8));
+//		t5.rightInsert(new Tree(9));
+//		
+//		Tree t2 = new Tree(2);
+//		t2.leftInsert(t4);
+//		t2.rightInsert(t5);
+//		
+//		tree.leftInsert(t2);
+////		tree.preorder(tree);
+		
 		List<Integer> list = new ArrayList<>();
-		tree.preorder(1, list, tree);
+		tree.countTree(1, list, tree);
 	
 		int max = list.stream().mapToInt(i -> i).max().orElseThrow(NoSuchElementException::new);
 		System.out.println(max);
@@ -65,7 +85,7 @@ class Tree {
 		return this.r;
 	}
 	
-	public void preorder(int count, List<Integer> list, Tree t) {
+	public void countTree(int count, List<Integer> list, Tree t) {
 		if(t!=null) {
 			if(t.l != null && t.r != null) {
 				count += 2;
@@ -76,8 +96,16 @@ class Tree {
 				count = 1;
 			}
 
-			preorder(count, list, t.l);
-			preorder(count, list, t.r);
+			countTree(count, list, t.l);
+			countTree(count, list, t.r);
+		}
+	}
+	
+	public void preorder(Tree t) {
+		if(t!=null) {
+			System.out.println(t.x);
+			preorder(t.l);
+			preorder(t.r);
 		}
 	}
 }
