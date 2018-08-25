@@ -40,15 +40,9 @@ public class RansomNote {
 	
 	static void checkMagazine(String[] magazine, String[] note) {
 		Hashtable<String, Integer> t = new Hashtable<>();
-		int count = 1;
 		
 		for(int i=0; i<magazine.length; i++) {
-			if(t.containsKey(magazine[i])) {
-				count = t.get(magazine[i])+1;
-			} else {
-				count = 1;
-			}
-			t.put(magazine[i], count);
+			t.put(magazine[i], t.getOrDefault(magazine[i],0)+1);
 		}
 		
 		for(int i=0; i<note.length; i++) {
