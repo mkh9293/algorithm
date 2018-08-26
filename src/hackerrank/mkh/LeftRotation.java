@@ -61,7 +61,7 @@ public class LeftRotation {
         
 //        leftRotation(a,d);
         for(int i=0;i<a.length;i++) {
-        	result[(i+(a.length-d)) % a.length ] = a[i];	
+        	result[(i+(d)) % a.length ] = a[i];	
         }
         
         System.out.println(Arrays.toString(result));

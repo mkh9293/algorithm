@@ -18,6 +18,18 @@ public class DetectCycle {
 	}
 
 	static boolean hasCycle(Node head) {
+		if(head == null) return false;
+		Node nextNode = head.next.next;
+		while(nextNode != null) {
+			if(head == nextNode) return true;
+			nextNode = nextNode.next.next;
+			head = head.next;
+		}
+		
+		return false;
+	}
+	
+	static boolean _hasCycle(Node head) {
 	    ArrayList<String> list = new ArrayList<>();
 	    Node curNode = head;
 	    while(curNode != null) {
