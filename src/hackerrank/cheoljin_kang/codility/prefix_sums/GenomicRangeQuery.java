@@ -1,9 +1,8 @@
 package hackerrank.cheoljin_kang.codility.prefix_sums;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class GenomicRangeQuery {
+    static final int TYPE_SIZE = 4;
+
     public static void main(String[] args) {
         String s = "CAGCCTA";
         int[] p = {2, 5, 0};
@@ -15,23 +14,40 @@ public class GenomicRangeQuery {
     }
 
     static int[] solution(String S, int[] P, int[] Q) {
-        Map<String, Integer> myMap = new HashMap<>();
-        myMap.put("A", 1);
-        myMap.put("C", 2);
-        myMap.put("G", 3);
-        myMap.put("T", 4);
-        int[] result = new int[P.length];
-        for (int i = 0; i < result.length; i++) {
-            String slice = S.substring(P[i], Q[i] + 1);
-            String[] s = slice.split("");
-            int minValue = myMap.get(s[0]);
-            for (int j = 1; j < s.length; j++) {
-                if (myMap.get(s[j]) < minValue) {
-                    minValue = myMap.get(s[j]);
+        int N = S.length();
+
+        int[] impactCnt = new int[TYPE_SIZE];
+        int[][] impactArray = new int[TYPE_SIZE][N + 1];
+
+        for (int i = 0; i < N; i++) {
+            int factor = letterToInt(S.charAt(i));
+            impactCnt[factor - 1] += 1;
+
+            for (int j = 0; j < TYPE_SIZE; j++) {
+                impactArray[j][i + 1] = impactCnt[j];
+            }
+        }
+        int M = P.length;
+        int[] result = new int[M];
+
+        for (int i = 0; i < M; i++) {
+            int start = P[i] + 1;
+            int end = Q[i] + 1;
+            for (int j = 0; j < TYPE_SIZE; j++) {
+                if (impactArray[j][end] - impactArray[j][start - 1] > 0) {
+                    result[i] = j + 1;
+                    break;
                 }
             }
-            result[i] = minValue;
         }
         return result;
+    }
+
+    static int letterToInt(char letter) {
+        if (letter == 'A') return 1;
+        if (letter == 'C') return 2;
+        if (letter == 'G') return 3;
+        if (letter == 'T') return 4;
+        return -1;
     }
 }
