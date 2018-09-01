@@ -1,5 +1,8 @@
 package hackerrank.cheoljin_kang.kakao;
 
+/*
+    Problem source : https://programmers.co.kr/learn/courses/30/lessons/17681?language=java
+ */
 public class SecretMap {
     public static void main(String[] args) {
         int[] arr1 = {9, 20, 28, 18, 11};
