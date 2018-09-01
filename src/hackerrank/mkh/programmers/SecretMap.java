@@ -14,46 +14,14 @@ public class SecretMap {
 		
 		map = settingMap(n, map, arr1);
 		map = settingMap(n, map, arr2);
-		
-		
-//		for(int i=0; i<n; i++) {
-//			String temp = Integer.toBinaryString(arr1[i]);
-//			while(temp.length() < n) {
-//				temp = 0 + temp;
-//			}
-//			
-//			for(int j=0; j<n; j++) {
-//				char c = temp.charAt(j);
-//				if(c == '0') {
-//					map[i][j] = " ";	
-//				} else {
-//					map[i][j] = "#";
-//				}
-//			}
-//		}
-//		
-//		for(int i=0; i<n; i++) {
-//			String temp = Integer.toBinaryString(arr2[i]);
-//			while(temp.length() < n) {
-//				temp = 0 + temp;
-//			}
-//			
-//			for(int j=0; j<n; j++) {
-//				char c = temp.charAt(j);
-//				if(c == '0' && !map[i][j].equals("#")) {
-//					map[i][j] = " ";	
-//				} else {
-//					map[i][j] = "#";
-//				}
-//			}
-//		}
+
 		String[] answer = new String[n];
 		for(int i=0; i<n; i++) {
-			String temp = "";
+			StringBuilder temp = new StringBuilder();
 			for(int j=0; j<n; j++) {
-				temp += map[i][j];
+				temp.append(map[i][j]);
 			}
-			answer[i] = temp;
+			answer[i] = temp.toString();
 		}
 		
 		System.out.println(Arrays.toString(answer));
@@ -62,14 +30,14 @@ public class SecretMap {
 	
 	static String[][] settingMap(int n, String[][] map, int[] arr) {
 		for(int i=0; i<n; i++) {
-			String temp = Integer.toBinaryString(arr[i]);
+			StringBuilder temp = new StringBuilder(Integer.toBinaryString(arr[i]));
 			while(temp.length() < n) {
-				temp = 0 + temp;
+				temp.insert(0,0);
 			}
 			
 			for(int j=0; j<n; j++) {
 				char c = temp.charAt(j);
-				if(c == '#' && map[i][j].isEmpty()) {
+				if(c == '1' || (map[i][j] != null && map[i][j].equals("#"))) {
 					map[i][j] = "#";	
 				} else {
 					map[i][j] = " ";
