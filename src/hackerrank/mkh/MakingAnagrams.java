@@ -16,7 +16,7 @@ public class MakingAnagrams {
         String b = scanner.nextLine();
 
         int res = makeAnagram(a, b);
-        
+        		
         System.out.println(res);
 
         scanner.close();
