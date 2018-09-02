@@ -24,28 +24,24 @@ public class TaleOfTwoStack {
 	}
 }
 
-class MyQueue<Integer>{
-	Stack<Integer> stack = new Stack<>();
-	Stack<Integer> temp = new Stack<>();
+class MyQueue<T> {
+	Stack<T> main = new Stack<>();
+	Stack<T> sub = new Stack<>();
 	
-	public Integer peek() {
-	    if(temp.isEmpty()) swapStack();
-	    return temp.peek();
+	void enqueue(T num) {
+		main.push(num);
 	}
-	
-	public Integer dequeue() {
-	    if(temp.isEmpty()) swapStack();
-	    return temp.pop();
-	}    
-	
-	public void enqueue(Integer item) {
-	    stack.push(item);
+	T dequeue() {
+		if(sub.isEmpty()) moveStack(main, sub);
+		return sub.pop();
 	}
-	
-	public void swapStack(){
-	    int size = stack.size();
-	    for(int i=0; i<size; i++) {
-	        temp.push(stack.pop());
-	    }
+	T peek() {
+		if(sub.isEmpty()) moveStack(main, sub);
+		return sub.peek();
+	}
+	void moveStack(Stack<T> main, Stack<T> sub) {
+		while(!main.isEmpty()) {
+			sub.push(main.pop());
+		}
 	}
 }
