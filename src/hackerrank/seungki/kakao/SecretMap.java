@@ -13,16 +13,23 @@ public class SecretMap {
 	 static String[] solution(int n, int[] arr1, int[] arr2) {
 	      String[] answer = new String[n];
 	      for(int a=0;a<n;a++) {
-	    	  int num = arr1[a]|arr2[a];
+
+	    	  int num = arr1[a] | arr2[a];
 	    	  String bi = Integer.toBinaryString(num);
+
 	    	  StringBuilder st = new StringBuilder(bi);
+
 	    	  if(st.length()<n) {
 	    		  for(int b=0;b<n-(st.length()-1);b++) {
 	    			  st.insert(0," ");
 	    		  }
 	    	  }
-	    	  answer[a]=st.toString().replace("0"," ").replace("1", "#");
+
+	    	  answer[a]=st.toString().
+					  replace("0"," ").
+					  replace("1", "#");
 	      }
+
 	      return answer;
 	  }
 
