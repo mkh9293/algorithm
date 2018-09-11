@@ -1,6 +1,6 @@
 package hackerrank.mkh.programmers;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 
 public class DartGame {
 	public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class DartGame {
 	
 	static int solution(String result) {
 		int answer = 0;
-		Hashtable<String, Integer> table = new Hashtable<>();
+		HashMap<String, Integer> table = new HashMap<>();
 		table.put("S",1);
 		table.put("D",2);
 		table.put("T",3);
