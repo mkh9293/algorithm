@@ -5,7 +5,7 @@ import java.util.List;
 
 public class NewsClustering {
 	public static void main(String[] args) {
-		solution("handshake", "shake hands");
+		solution("E=M*C^2", "e=m*c^2");
 	}
 	
 	public static int solution(String str1, String str2) {
@@ -26,6 +26,8 @@ public class NewsClustering {
 					list1.add(temp);
 					temp = s1[i];
 				}
+			} else {
+				temp = "";
 			}
 		}
 		
@@ -44,11 +46,13 @@ public class NewsClustering {
 					}
 					temp = s2[i];
 				} 
+			} else {
+				temp ="";
 			}
 		}
 		
-		answer = intersec/(intersec + list1.size() + list2.size());
-		System.out.println((int)(answer * 65536));
+		double sumSet = intersec + list1.size() + list2.size();
+		answer = (sumSet==0.0) ? 1 : intersec / sumSet;
 		return (int)answer * 65536; 
 	}
 	
@@ -60,62 +64,4 @@ public class NewsClustering {
 		}
 		return false;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	static void solution(String str1, String str2) {
-//		String s1 = str1.toLowerCase();
-//		String s2 = str2.toLowerCase();
-//		
-//		String[] arr1 = s1.split("");
-//		String[] arr2 = s2.split("");
-//		
-//		HashSet<String> h1 = makeSet(arr1);
-//		HashSet<String> h2 = makeSet(arr2);
-//		
-//		h1.forEach(x->System.out.println(x));
-//	}
-//	
-//	static HashSet makeSet(String[] arr) {
-//		HashSet<String> tempSet = new HashSet<>();
-//		String s = "";
-//		for(int i=0; i<arr.length; i++) {
-//			if(chkString(arr[i])) {
-//				s += arr[i];
-//				
-//				if(s.length() == 2) {
-//					tempSet.add(s);
-//					s = "";
-//				}
-//				
-//			} else {
-//				i++;
-//			}
-//		}
-//		return tempSet;
-//	}
-//	
-
 }
