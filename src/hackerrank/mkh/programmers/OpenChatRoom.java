@@ -14,14 +14,16 @@ public class OpenChatRoom {
 	public static String[] solution(String[] record) {
 		String[] answer = {};
 		Map<String, String> map = new HashMap<>();
-		
+//		int count = 0;
 		for(int i=0; i<record.length; i++) {
 			String[] temp = record[i].split(" ");
 			
 			if(!temp[0].equals("Leave")) {
 				map.put(temp[1], temp[2]);	
-			}
+			} 
 		}
+		
+//		String[] temp2 = new String[count];
 		
 		List<String> list = new ArrayList<>();
 		for(int i=0; i<record.length; i++) {

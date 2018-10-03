@@ -99,7 +99,7 @@ public class FindWayGame {
 	}
 }
 
-class Node {
+class Node{
 	public int val;
 	public int x;
 	public Node left;
