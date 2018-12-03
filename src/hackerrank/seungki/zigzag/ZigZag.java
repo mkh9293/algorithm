@@ -1,4 +1,4 @@
-package hackerrank.seungki.kakao;
+package hackerrank.seungki.zigzag;
 
 import java.util.LinkedList;
 import java.util.Queue;

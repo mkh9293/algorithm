@@ -1,4 +1,4 @@
-package hackerrank.seungki.kakao;
+package hackerrank.seungki.zigzag;
 
 import java.io.BufferedWriter;
 import java.io.PrintStream;
