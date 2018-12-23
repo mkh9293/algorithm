@@ -1,4 +1,4 @@
-package hackerrank.seungki.kakao;
+package hackerrank.seungki;
 
 public class SecretMap {
 
