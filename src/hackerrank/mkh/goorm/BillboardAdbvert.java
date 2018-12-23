@@ -29,23 +29,23 @@ public class BillboardAdbvert {
 		
 		
 		// lotate test
-//		lotate = -2;
-//		size = 5;
-//		String[] test = {"김연아", "김아연","아연김","아김연","김김아"};
-//		int n = lotate;
-//		 if(n < 0) // rotating left?
-//	      {
-//	          n = -n % size; // convert to +ve number specifying how 
-//	                                // many positions left to rotate & mod
-//	          n = size - n;  // rotate left by n = rotate right by length - n
-//	      }
-//		 	String[] result = new String[size];
-//	      for(int i = 0; i < size; i++){
-//	    	  System.out.println("count : "+(i+n) % size);
-//	          result[(i+n) % size ] = test[i];
-//	      }
-//	      
-//	      System.out.println(Arrays.toString(result));
+		lotate = 2;
+		size = 2;
+		String[] test = {"김연아", "김아연","아연김","아김연","김김아"};
+		int n = lotate;
+		 if(n < 0) // rotating left?
+	      {
+	          n = -n % size; // convert to +ve number specifying how 
+	                                // many positions left to rotate & mod
+	          n = size - n;  // rotate left by n = rotate right by length - n
+	      }
+		 	String[] result = new String[size];
+	      for(int i = 0; i < size; i++){
+	    	  System.out.println("count : "+(i+n) % size);
+	          result[(i+n) % size ] = test[i];
+	      }
+	      
+	      System.out.println(Arrays.toString(result));
 	}
 	
 	static String[][] rotateArr(String[][] a, int lotate) {

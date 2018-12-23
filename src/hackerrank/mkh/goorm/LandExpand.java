@@ -21,7 +21,8 @@ public class LandExpand {
 				+ 	  "0 0 B 0 0\n"
 				+ 	  "0 C 8 0 0\n"
 				+ 	  "0 0 0 0 0\n";
-		solution(size, land);
+		System.out.println(10/0);
+//		solution(size, land);
 	}
 	
 	public static void solution(int size, String land) {
