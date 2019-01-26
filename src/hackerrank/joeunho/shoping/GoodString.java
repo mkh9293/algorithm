@@ -50,6 +50,7 @@ public class GoodString {
         return count;
     }
 
+    //문자를 변경해야하는 위치를 찾았을때 스왑해준다.
     public static char[] swap(char[] ch,int i,int j){
         char temp = ch[i];
         ch[i] = ch[j];
