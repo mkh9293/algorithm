@@ -17,6 +17,7 @@ public class View1206 {
             int left2 = arr[i] - arr[i-1];
             int right1 = arr[i] - arr[i+1];
             int right2 = arr[i] - arr[i+2];
+
             if(left1 >0 && left2 >0 && right1 >0 && right2 >0){
                 min = left1;
                 if(min>left2){
